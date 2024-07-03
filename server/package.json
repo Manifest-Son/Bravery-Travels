@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "\"It connects the tourists and locals to the cars to hire.\"",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start-dev": "nodemon index.js"
+  },
+  "author": "\"Manifest-Son\"",
+  "license": "ISC",
+  "devDependencies": {
+    "prisma": "^5.16.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}
