@@ -1,10 +1,12 @@
-import express from express;
+import express from 'express';
+import usersRouter from "./routes/users.routes.js";
 
 const app = express();
+app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send("This is an API Example")
-})
+
+app.use("/api/users", usersRouter )
+
 
 app.listen("3000", () => {
     console.log("The server is running on port 3000...")
