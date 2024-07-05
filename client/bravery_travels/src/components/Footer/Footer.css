@@ -1,0 +1,49 @@
+.footer_wrapper{
+    background-color: #176b87;
+    display: flex;
+    justify-content: space-around;
+    align-items:baseline;
+    padding: 1rem;
+}
+.footer_logo{
+    height: 5rem;
+    width: 9rem;
+}
+.footer_links{
+    list-style-type: none;
+    font-size: 700;
+    display: grid;
+    gap: 0.5rem;
+}
+.footer_logo_txt{
+    font-size: 700;
+    display: grid;
+    gap: 0.5rem;
+}
+.site_navigation{
+    font-size: 700;
+    display: grid;
+    gap: 0.5rem;
+}
+.other_links{
+    font-size: 700;
+    display: grid;
+    gap: 0.5rem;
+}
+.contact_us{
+    font-size: 700;
+    display: grid;
+    gap: 0.5rem;
+}
+.contact_us svg{
+    color: white;
+}
+h1{
+    text-decoration: underline;
+}
+.footer_copyright{
+    font-size: 700;
+    text-align: center;
+    background-color: grey;
+    padding: 0.4rem;
+}
