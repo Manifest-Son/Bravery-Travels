@@ -3,13 +3,14 @@ import "./App.css";
 // import Signup from "./pages/Start/Signup";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footers";
-import About from "./pages/About/About";
+// import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
     <>
       <Header />
-      <About />
+      <Contact />
       <Footer />
     </>
   );

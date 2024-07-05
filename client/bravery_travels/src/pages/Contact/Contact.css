@@ -1,0 +1,85 @@
+.contact_where_find {
+  background-color: #176b87;
+  border-radius: 2rem;
+  padding: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  place-content: center;
+}
+.contact_head {
+  text-transform: uppercase;
+  font-style: italic;
+  text-decoration: underline;
+  text-align: center;
+}
+.contact_info,
+.contact_socials {
+  display: grid;
+  gap: 0.8rem;
+}
+.contact_info svg,
+.contact_socials svg {
+  height: 1rem;
+  width: 1rem;
+  color: #fff;
+}
+.form_wrapper {
+  background-color: #176b87;
+  border-radius: 2rem;
+  display: grid;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+.cont_form_head {
+  text-transform: uppercase;
+  color: white;
+}
+.cont_form_lbl {
+  font-size: 500;
+  color: #fff;
+}
+.cont_form_input {
+  padding: 0.5rem;
+  border-radius: 15px;
+  border: none;
+  border-bottom: #fff;
+}
+.form_join {
+  display: grid;
+}
+.submit_btn {
+  padding: 0.5rem;
+  border-radius: 15px;
+  font-weight: 700;
+  background-color: #86b6f6;
+  color: #fff;
+  cursor: pointer;
+}
+.submit_btn:hover {
+  font-weight: 700;
+  background-color: #fff;
+  color: #86b6f6;
+}
+.contact_info_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.vl {
+  border-left: 6px solid green;
+  height: 45vh;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+}
+.contact_hero {
+  background-image: url(../../assets/contact-us.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+  place-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
