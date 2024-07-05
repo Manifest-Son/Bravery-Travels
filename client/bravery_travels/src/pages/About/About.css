@@ -1,0 +1,25 @@
+.about_wrapper {
+  background-color: #808080;
+}
+.about_wrappers {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  justify-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border: 2px solid black;
+  border-radius: 15px;
+  border-spacing: 1rem;
+}
+.about_info {
+  display: grid;
+  gap: 2rem;
+}
+h1 {
+  text-transform: uppercase;
+}
+.about_info svg {
+  height: 5rem;
+  width: 5rem;
+  color: #176b87;
+}

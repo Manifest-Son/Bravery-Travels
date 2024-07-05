@@ -5,7 +5,7 @@ function Logingin() {
   return (
     <>
       <div className="start_container">
-        <div className="welcome-wrapper"> 
+        <div className="welcome-wrapper">
           <h1>Welcome to Bravery Travels.</h1>
           <p>Where the car is near you.</p>
         </div>
