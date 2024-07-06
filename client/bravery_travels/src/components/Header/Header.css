@@ -16,7 +16,6 @@
 .bottom_container {
   display: flex;
   justify-content: space-around;
-  flex-flow: 8;
 }
 .header_nav_links {
   padding: 0.3rem;
@@ -38,8 +37,11 @@
 }
 .header_wrapper {
   background-color: #176b87;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.header_right {
+  width: 100%;
 }
 .header_logo {
   height: 4.5rem;

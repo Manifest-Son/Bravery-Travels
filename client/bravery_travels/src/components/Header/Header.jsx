@@ -60,13 +60,13 @@ function BottomHeader() {
 function Header() {
   return (
     <>
-      <div className="header_wrapper">
+      <section className="header_wrapper">
         <img src={logo} alt="Company Logo" className="header_logo" />
         <div className="header_right">
           <TopHeader />
           <BottomHeader />
         </div>
-      </div>
+      </section>
     </>
   );
 }

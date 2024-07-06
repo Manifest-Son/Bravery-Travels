@@ -4,13 +4,14 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footers";
 // import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
+// import Contact from "./pages/Contact/Contact";
+import Price from "./pages/Pricing/Price";
 
 function App() {
   return (
     <>
       <Header />
-      <Contact />
+      <Price />
       <Footer />
     </>
   );

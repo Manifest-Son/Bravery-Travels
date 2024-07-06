@@ -40,8 +40,8 @@ function WhereToFind() {
 
 function ReachOut() {
   return (
-    <section>
-      <form className="form_wrapper">
+    <section className="form_wrapper">
+      <form>
         <h1 className="cont_form_head">Reach out to us</h1>
         <div className="form_join">
           <label htmlFor="fname" className="cont_form_lbl">
@@ -106,6 +106,10 @@ function Contact() {
         <div className="vl"></div>
         <ReachOut />
       </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.868963124735!2d36.820089800000005!3d-1.2499265999999984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f16ef7ff9f5ef%3A0x25e656f02e241de1!2sMuthaiga%20Travel!5e0!3m2!1sen!2ske!4v1720198740486!5m2!1sen!2ske"
+        allowfullscreen=""
+      ></iframe>
     </section>
   );
 }
