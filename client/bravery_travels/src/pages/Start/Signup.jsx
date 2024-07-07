@@ -1,6 +1,7 @@
 import "./start.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const validationSchema = Yup.object({
@@ -102,7 +103,7 @@ function Signup() {
             </form>
             <div className="invite">
               <p>
-                Do you have an account? <a href="/signin">Log In</a>
+                Do you have an account? <Link to="/login">Log In</Link>
               </p>
             </div>
           </div>
