@@ -13,9 +13,13 @@ import loginRouter from "./routes/login.routes.js";
 
 config();
 const app = express();
-app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PATCH", "DELETE"]
+}));
 
+app.use(express.urlencoded({extended: true}))
+app.use(express.json());
 app.use("/api/users", usersRouter);
 app.use("/api/booking", bookingRouter);
 app.use("/api/vehicle", vehicleRouter);

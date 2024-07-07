@@ -60,6 +60,9 @@ function BottomHeader() {
         <button>
           <Link to="/signup">Sign Up</Link>
         </button>
+        <button>
+          <Link to="/profile">Profile</Link>
+        </button>
       </div>
     </section>
   );

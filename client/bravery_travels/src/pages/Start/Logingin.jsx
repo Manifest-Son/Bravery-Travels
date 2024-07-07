@@ -2,8 +2,17 @@ import "./start.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import {useState} from 'react'
+import { Link, useNavigate } from "react-router-dom";
+import { apiURL } from "../../utils/config";
+
 
 function Form() {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+  const [navigate, setNavigate] = useState(false)
+
   const validationSchema = Yup.object({
     emailAddress: Yup.string()
       .required("Email Addres is required")
@@ -20,6 +29,24 @@ function Form() {
     },
     validationSchema: validationSchema,
   });
+
+  const handleSubmit = async (formValues) => {
+    try{
+      setLoading(true)
+      setError(false)
+      const response = await axios.post(`${apiURL}/api/auth/login`, formValues)
+      const data = await response.json()
+      if(data.success === true){
+        navigate("/login")
+      } else {
+        setError(data.message)
+      }
+    } catch (err){
+      setError(e.message)
+    } finally{
+      setLoading(false)
+    }
+  }
   return (
     <form onSubmit={formik.handleSubmit} className="login-form">
       <div>

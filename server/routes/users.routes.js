@@ -6,6 +6,7 @@ import {
   updateUser,
   deleteUser,
 } from "../middlewares/users.middlewares.js";
+import validateInformation from "../controllers/users.controllers.js";
 
 const router = Router();
 
@@ -15,7 +16,7 @@ router.get("/:id", selectUser);
 
 router.post("/", createUser);
 
-router.patch("/:id", updateUser);
+router.patch("/:id", updateUser, validateInformation);
 
 router.delete("/:id", deleteUser);
 
