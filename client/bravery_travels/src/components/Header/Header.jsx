@@ -1,32 +1,32 @@
-// import { FaFacebook } from "react-icons/fa";
-// import { FaXTwitter, FaLinkedin } from "react-icons/fa6";
-// import { FaPhoneAlt } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaXTwitter, FaLinkedin } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-// function TopHeader() {
-//   return (
-//     <section className="top_header_container">
-//       <div className="contact_wrapper">
-//         <FaFacebook />
-//         <p>Bravery Travel</p>
-//       </div>
-//       <div className="contact_wrapper">
-//         <FaXTwitter />
-//         <p>Bravery Travel</p>
-//       </div>
-//       <div className="contact_wrapper">
-//         <FaLinkedin />
-//         <p>Bravery Travel</p>
-//       </div>
-//       <div className="contact_wrapper">
-//         <FaPhoneAlt />
-//         <p>+2547123456789</p>
-//       </div>
-//     </section>
-//   );
-// }
+function TopHeader() {
+  return (
+    <section className="top_header_container">
+      <div className="contact_wrapper">
+        <FaFacebook />
+        <p>Bravery Travel</p>
+      </div>
+      <div className="contact_wrapper">
+        <FaXTwitter />
+        <p>Bravery Travel</p>
+      </div>
+      <div className="contact_wrapper">
+        <FaLinkedin />
+        <p>Bravery Travel</p>
+      </div>
+      <div className="contact_wrapper">
+        <FaPhoneAlt />
+        <p>+2547123456789</p>
+      </div>
+    </section>
+  );
+}
 
 function BottomHeader() {
   return (
@@ -54,16 +54,16 @@ function BottomHeader() {
         </ol>
       </div>
       <div className="header_user">
-        <button>
-          <Link to="/login">Log In</Link>
-        </button>
-        <button>
-          <Link to="/signup">Sign Up</Link>
-        </button>
-        <button>
-          <Link to="/profile">Profile</Link>
-        </button>
-      </div>
+      <button>
+        <Link to="/login">Log In</Link>
+      </button>
+      <button>
+        <Link to="/signup">Sign Up</Link>
+      </button>
+      <button>
+        <Link to="/profile">Profile</Link>
+      </button>
+    </div>
     </section>
   );
 }
@@ -72,7 +72,7 @@ function Header() {
   return (
     <>
       <section className="header_wrapper">
-        {/* <TopHeader /> */}
+        <TopHeader />
         <BottomHeader />
       </section>
     </>

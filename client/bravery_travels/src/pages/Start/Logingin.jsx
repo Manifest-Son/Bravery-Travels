@@ -1,10 +1,9 @@
 import "./start.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import {useState} from 'react'
-import { Link, useNavigate } from "react-router-dom";
 import { apiURL } from "../../utils/config";
 
 
@@ -41,11 +40,12 @@ function Form() {
       } else {
         setError(data.message)
       }
-    } catch (err){
-      setError(e.message)
+    } catch (error){
+      setError(error.message)
     } finally{
       setLoading(false)
     }
+    handleSubmit();
   }
   return (
     <form onSubmit={formik.handleSubmit} className="login-form">
@@ -84,7 +84,7 @@ function Form() {
         <input type="checkbox" name="rememberMe" id="remmberMe" />
         <p>Remember Me</p>
       </div>
-      <button className="submit-btn">Log In</button>
+      <button className="submit-btn" onClick={() => navigate("/signup")}>Log In</button>
     </form>
   );
 }

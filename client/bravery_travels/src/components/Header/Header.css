@@ -5,6 +5,12 @@
   align-items: center;
   padding: 0 1rem;
 }
+@media screen and (max-width: 62.5em) {
+  .bottom_header{
+    
+  }
+  
+}
 .header_logo img {
   height: 4rem;
   width: 10rem;
@@ -38,7 +44,7 @@
 }
 .header_user {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 .header_user button {
@@ -53,4 +59,15 @@
   font-weight: 700;
   background-color: #fff;
   color: #86b6f6;
+}
+.top_header_container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.contact_wrapper{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
 }

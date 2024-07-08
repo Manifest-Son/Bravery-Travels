@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 
 function Signup() {
+
   const validationSchema = Yup.object({
     firstname: Yup.string().required("First Name is required"),
     lastname: Yup.string().required("Last Name is required."),
@@ -25,6 +26,7 @@ function Signup() {
     },
     validationSchema: validationSchema,
   });
+
   return (
     <>
       <div className="start_container">
