@@ -3,6 +3,6 @@ import { login } from "../middlewares/login.middlewares.js";
 import validationLoginUser from "../controllers/login.controllers.js";
 const router = Router();
 
-router.post("/", login, validationLoginUser);
+router.post("/",validationLoginUser, login);
 
 export default router;

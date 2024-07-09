@@ -1,4 +1,5 @@
 const validationLoginUser = (req, res, next) => {
+  const { emailAddress, password } = req.body;
   if (!emailAddress)
     return res
       .status(400)
