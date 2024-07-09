@@ -4,6 +4,7 @@ import Experience from "./Experience";
 import "./Home.css";
 import Vehicle from "./Vehicles";
 import Testimonials from "./Testimonials";
+import Cloudinary from "../../Cloudinary/Cloudinary";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Experience />
       <Vehicle />
       <Testimonials />
+      <Cloudinary />
     </>
   );
 }

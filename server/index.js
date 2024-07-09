@@ -12,13 +12,15 @@ import signupRouter from "./routes/signup.routes.js";
 import loginRouter from "./routes/login.routes.js";
 
 config();
-const app = express();
-app.use(cors({
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST", "PATCH", "DELETE"]
-}));
+const app = express({});
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PATCH", "DELETE"]
+  }),
+);
 
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use("/api/users", usersRouter);
 app.use("/api/booking", bookingRouter);

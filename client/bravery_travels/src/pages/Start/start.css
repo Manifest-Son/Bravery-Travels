@@ -52,6 +52,11 @@ body {
   font-size: 500;
   color: #fff;
 }
+.form_section p{
+  font-size: 1rem;
+  background-color:grey;
+  color: white;
+}
 .login-form {
   display: flex;
   gap: 0.5rem;
@@ -73,6 +78,10 @@ body {
   place-content: center;
   gap: 1rem;
   color: #fff;
+}
+.remember input{
+  width: 1rem;
+  width: 1rem;
 }
 .submit-btn {
   padding: 0.5rem;

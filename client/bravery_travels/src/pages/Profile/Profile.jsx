@@ -5,9 +5,9 @@ const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
     avatar: "https://via.placeholder.com/150",
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com",
+    firstName: "Lennox",
+    lastName: "Githinji",
+    email: "lennoxgithinji@example.com",
     password: "********",
   });
 
@@ -32,7 +32,7 @@ const ProfilePage = () => {
             type="text"
             value={profile.firstName}
             onChange={(e) =>
-              setProfile({ ...profile, firstName: e.target.value })
+              setProfile({ profile, firstName: e.target.value })
             }
           />
         ) : (
@@ -51,9 +51,9 @@ const ProfilePage = () => {
         )}
         {isEditing ? (
           <input
-            type="email"
-            value={profile.email}
-            onChange={(e) => setProfile({ ...profile, email: e.target.value })}
+            type="emailAddress"
+            value={profile.emailAddress}
+            onChange={(e) => setProfile({ ...profile, emailAddress: e.target.value })}
           />
         ) : (
           <p>Email: {profile.email}</p>

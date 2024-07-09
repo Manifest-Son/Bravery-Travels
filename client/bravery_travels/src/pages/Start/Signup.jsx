@@ -1,30 +1,61 @@
 import "./start.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { apiURL } from "../../utils/config";
+import axios from "axios";
+
 
 function Signup() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object({
     firstname: Yup.string().required("First Name is required"),
-    lastname: Yup.string().required("Last Name is required."),
+    lastname: Yup.string().required("Last Name is required"),
     emailAddress: Yup.string()
-      .required("Email is required.")
-      .email("invalid email format"),
-    password: Yup.string().required("Password is required."),
+      .required("Email is required")
+      .email("Invalid email format"),
+    password: Yup.string().required("Password is required"),
   });
+
   const formik = useFormik({
     initialValues: {
       firstname: "",
       lastname: "",
       emailAddress: "",
-      password: "",
-      checkbox: "",
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values));
+      password: ""
     },
     validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      try {
+        setLoading(true);
+        setError('');
+        const response = await axios.post(`${apiURL}/api/auth/signup`, values)
+        // fetch(`${apiURL}/api/auth/signup`, {
+          // localhost:3000/api/auth/signup
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(values)
+        // });
+        console.log(response)
+        const data = response.data;
+        if (data.success === true) {
+          navigate("/login");
+        } else {
+          setError(data.message);
+        }
+        console.log(data)
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    },
   });
 
   return (
@@ -47,6 +78,7 @@ function Signup() {
                 className="form-input"
               />
               {formik.errors.firstname && <p>{formik.errors.firstname}</p>}
+              
               <label htmlFor="lastname" className="form-lbl">
                 Last Name:
               </label>
@@ -67,6 +99,7 @@ function Signup() {
               <input
                 type="email"
                 name="emailAddress"
+                id="emailAddress"
                 value={formik.values.emailAddress}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -88,20 +121,24 @@ function Signup() {
                 onBlur={formik.handleBlur}
                 className="form-input"
               />
-              {formik.errors.password && <p>{formik.errors.password} </p>}
+              {formik.errors.password && <p>{formik.errors.password}</p>}
+
+              {error && <p>{error}</p>}
+
               <div className="remember">
                 <input
                   type="checkbox"
                   name="rememberMe"
-                  id="remmberMe"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
+                  id="rememberMe"
                 />
                 <p>
                   Agree to <a href="/">Terms and Conditions</a>
                 </p>
               </div>
-              <button className="submit-btn">Sign in</button>
+
+              <button type="submit" className="submit-btn">
+                {loading ? "Signing up..." : "Sign Up"}
+              </button>
             </form>
             <div className="invite">
               <p>
@@ -112,7 +149,7 @@ function Signup() {
         </div>
         <div className="welcome-wrapper">
           <h1>We are glad that you are back.</h1>
-          <p>We are her to serve you.</p>
+          <p>We are here to serve you.</p>
         </div>
       </div>
     </>
