@@ -5,11 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import { apiURL } from "../../utils/config";
 import axios from "axios";
+import useStore from '../../store/Store';
 
 function Form() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { login } = useStore();
 
   const validationSchema = Yup.object({
     emailAddress: Yup.string()
@@ -30,20 +32,11 @@ function Form() {
         setError(null);
         console.log(formValues)
         const response = await axios.post(`${apiURL}/api/auth/login`, formValues);
-        // fetch(`${apiURL}/api/auth/login`, 
-        //   {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(formValues)
-        // }
-      // );
         const data = response.data;
         console.log(response)
         console.log(data)
-        if (data.success === true) {
-          navigate("/");
+        if (data) {
+          navigate("/profile"), login ;
         } else {
           setError(data.message);
         }

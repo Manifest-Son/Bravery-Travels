@@ -1,50 +1,61 @@
-.profile-container {
+.profile_container{
+  background-color: #176B87;
+  border-radius: 15px;
+  margin: 1rem auto ;
+  width: 80%;
+  justify-content: center;
+}
+
+.profile_container h1{
+  text-align: center;
+  font-size: 1.5rem;
+  place-content: center;
+}
+.profile_wrap{
+  border: 2px solid green;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* justify-content: center; */
+  align-items: center;
+}
+.image_section{
+  justify-content: center;
+  border
+}
+
+.image_hold img{
+  width: 15rem;
+  height: 15rem;
+}
+.content{
+  display: grid;
+  place-items: baseline;
+  padding: 1rem;
+}
+.content input{
+  padding: 0.5rem;
+  border-radius: 15px;
+  border: none;
+  border-bottom: #fff;
+  width: 90%;
+}
+.update_btns{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+  gap: 5rem;
+  padding: 1rem;
 }
-
-.profile-card {
-  background-color: #fff; 
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 300px;
-}
-
-.profile_img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
-h2,
-h3,
-p {
-  margin: 10px 0;
-}
-
-input {
-  margin: 10px 0;
-  padding: 8px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-button, .delete-button {
+.update_btns button{
   padding: 0.5rem;
   border-radius: 15px;
   font-weight: 700;
   background-color: #86b6f6;
   color: #fff;
   cursor: pointer;
+  width: 50%;
 }
-
-button:hover {
+.update_btns button:hover {
   font-weight: 700;
   background-color: #fff;
   color: #86b6f6;

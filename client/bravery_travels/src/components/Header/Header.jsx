@@ -4,6 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import AuthProfile from "./AuthProfile";
 
 function TopHeader() {
   return (
@@ -29,6 +30,7 @@ function TopHeader() {
 }
 
 function BottomHeader() {
+
   return (
     <section className="bottom_header">
       <div className="header_logo">
@@ -53,17 +55,10 @@ function BottomHeader() {
           </li>
         </ol>
       </div>
-      <div className="header_user">
-      <button>
-        <Link to="/login">Log In</Link>
-      </button>
-      <button>
-        <Link to="/signup">Sign Up</Link>
-      </button>
-      <button>
-        <Link to="/profile">Profile</Link>
-      </button>
-    </div>
+      <div className="login_signup">
+        <AuthProfile />
+      </div> 
+
     </section>
   );
 }

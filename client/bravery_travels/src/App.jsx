@@ -7,7 +7,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Price from "./pages/Pricing/Price.jsx";
-import ProfilePage from "./pages/Profile/Profile.jsx";
+import Profile from "./pages/Profile/Profile.jsx"
 import CarHires from "./pages/Car Hire/CarHires";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -24,7 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Logingin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
       </BrowserRouter>

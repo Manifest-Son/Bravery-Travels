@@ -45,7 +45,7 @@ export const createUser = async (req, res) => {
         userImg: userImg,
       },
       //   select: {
-      //     firstname: true,
+      //     firstname: true,w
       //     lastname: true,
       //     emailAddress: true,
       //     userImg: true

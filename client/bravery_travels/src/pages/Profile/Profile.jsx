@@ -1,85 +1,141 @@
-import { useState } from "react";
-import "./Profile.css";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { apiURL } from '../../utils/config';
+import './Profile.css';
 
-const ProfilePage = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [profile, setProfile] = useState({
-    avatar: "https://via.placeholder.com/150",
-    firstName: "Lennox",
-    lastName: "Githinji",
-    email: "lennoxgithinji@example.com",
-    password: "********",
+const Profile = () => {
+  const [user, setUser] = useState("User");
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    emailAddress: '',
+    password: ''
   });
 
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
+  useEffect(() => {
+    axios.get(`${apiURL}/api/users`)
+      .then(response => {
+        const { firstName, lastName, emailAddress } = response.data;
+        setFormData({ firstName, lastName, emailAddress, password: '' });
+        setUser(response.data.firstname); 
+      })
+      .catch(error => {
+        console.error('There was an error fetching the user data!', error);
+      });
+  }, []);
 
-  const handleDelete = () => {
-    alert("Profile deleted");
+  const [imageInput, setImageInput] = useState()
+    const cloudname = 'difce7p4s';
+    const preset = 'bravery_travels' ;
+
+  const handleUpload = async () => {
+    const payload = new FormData();
+    payload.append("file", imageInput)
+        payload.append("upload_preset", preset)
+        try{
+        console.log(imageInput)
+        const response = await axios.post(`https://api.cloudinary.com/v1_1/${cloudname}/image/upload`, payload)
+        const secure_url = response.data.secure_url
+        const imageUrl = secure_url.replace("/upload","/upload/w_300/f_auto/")
+        console.log(imageUrl)
+        } catch (error) {
+            console.log(error)
+        }
+  };
+  
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   const handleSave = () => {
-    setIsEditing(false);
+    axios.put(`${apiURL}/api/users`, formData)
+      .then(response => {
+        console.log('User data saved successfully:', response.data);
+      })
+      .catch(error => {
+        console.error('There was an error saving the user data!', error);
+      });
+  };
+
+  const handleDelete = () => { 
+    axios.delete(`${apiURL}/api/users`)
+      .then(response => {
+        console.log('User data deleted successfully:', response.data);
+      })
+      .catch(error => {
+        console.error('There was an error deleting the user data!', error);
+      });
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-card">
-        <img src={profile.avatar} alt="Profile_Image" className="profile_img" />
-        {isEditing ? (
+    <section className='profile_container'>
+      <h1>Welcome {user} to your profile</h1>
+      <div className="profile_wrap">
+      <div className='image_section'>
+       <div className='image_hold'><img src={imageInput ? URL.createObjectURL(imageInput) : ''} alt="Insert your image below" /></div>
+      <input
+        type="file"
+        name='image'
+        id='image'
+        onChange={(e) => setImageInput(e.target.files[0])}
+      />
+      <button onClick={handleUpload}>Upload Photo</button>
+      </div>
+      <div className="user_details">
+        <div className="content">
+          <label htmlFor="firstName">First Name:</label>
           <input
             type="text"
-            value={profile.firstName}
-            onChange={(e) =>
-              setProfile({ profile, firstName: e.target.value })
-            }
+            name='firstName'
+            id='firstName'
+            value={formData.firstName}
+            onChange={handleInputChange}
           />
-        ) : (
-          <h2>{profile.firstName}</h2>
-        )}
-        {isEditing ? (
+        </div>
+        <div className="content">
+          <label htmlFor="lastName">Last Name:</label>
           <input
             type="text"
-            value={profile.lastName}
-            onChange={(e) =>
-              setProfile({ ...profile, lastName: e.target.value })
-            }
+            name='lastName'
+            id='lastName'
+            value={formData.lastName}
+            onChange={handleInputChange}
           />
-        ) : (
-          <h3>{profile.lastName}</h3>
-        )}
-        {isEditing ? (
+        </div>
+        <div className="content">
+          <label htmlFor="emailAddress">Email:</label>
           <input
-            type="emailAddress"
-            value={profile.emailAddress}
-            onChange={(e) => setProfile({ ...profile, emailAddress: e.target.value })}
+            type="email"
+            name='emailAddress'
+            id='emailAddress'
+            value={formData.emailAddress}
+            onChange={handleInputChange}
           />
-        ) : (
-          <p>Email: {profile.email}</p>
-        )}
-        {isEditing ? (
+        </div>
+        <div className="content">
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
-            value={profile.password}
-            onChange={(e) =>
-              setProfile({ ...profile, password: e.target.value })
-            }
+            name='password'
+            id='password'
+            value={formData.password}
+            onChange={handleInputChange}
           />
-        ) : (
-          <p>Password: {profile.password}</p>
-        )}
-        {isEditing ? (
-          <button onClick={handleSave}>Save</button>
-        ) : (
-          <button onClick={handleEdit}>Edit</button>
-        )}
-        <button onClick={handleDelete} className="delete-button">
-          Delete
-        </button>
+        </div>
       </div>
     </div>
+    <div className="update_btns">
+          <button onClick={handleSave}>Save</button>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+
+    </section>
   );
 };
 
-export default ProfilePage;
+export default Profile;
